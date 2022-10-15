@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>قائمة المهام</title>
+  <link rel="stylesheet" href="css/styles.css">
+
+</head>
+
+<body>
+
+  <div class="box" id="heading">
+    <h1>يوم <%= arDay %> </h1>
+  </div>
+
+  <div class="box">
+    <% for(var i=0;i<listArray.length;i++){ %>
+    <form class="" action="/delete" method="post">
+      <div class="item">
+        <input type="checkbox" value="<%=listArray[i]%>" onchange="this.form.submit()">
+        <p><%= listArray[i] %></p>
+        <!-- <input type="button" onclick="<% function popItem(){listArray[i].pop()} %>"> -->
+      </div>
+      <input type="hidden" name="listName" value="<%=listArray[i]%>"></input>
+    </form>
+      <% } %>
+
+      <form action="/" method="post" class="item">
+        <input type="text" name="toDoItem" placeholder="اضافة مهمة" autocomplete="off">
+        <button type="submit" name="button">+</button>
+      </form>
+
+  </div>
+
+    <div class="box">
+      <% for(var i=0;i<historyList.length;i++){ %>
+          <p class="historyItems"><%=historyList[i]%></p>
+          <% } %>
+    </div>
+
+
+</body>
+
+</html>
