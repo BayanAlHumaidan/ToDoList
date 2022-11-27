@@ -1,0 +1,35 @@
+<%- include("header") -%>
+
+<div class="box" id="heading">
+  <h1><%= arDay %></h1>
+  <a href="/main"> <h1 name="listTitle"><%= defaultList %></h1></a>
+</div>
+
+<% lists.forEach(list =>{ %>
+
+<div class="box" id="heading" method="post">
+
+  <form action="/deleteList" method="post">
+    <input type="hidden" name="title" value="<%= list.name %>">
+    <button class="deleteBtn" type="submit">
+      <i class="fa-solid fa-trash fa-xs"></i> </button>
+      <a href="/<%=list.name%>"><h1 name="listTitle"><%= list.name %></h1></a>
+
+  </form>
+
+</div>
+
+<% }) %>§
+
+<div class="box" id="insert">
+  <form action="/newList" method="post">
+    <input
+      type="text"
+      name="newList"
+      placeholder="قائمة جديدة"
+      autocomplete="off"
+    />
+    <button class="addBtn" type="submit" name="list" value="">+</button>
+  </form>
+</div>
+<%- include("footer") -%>

@@ -10,10 +10,12 @@ html {
 h1 {
   color: #fff;
   padding: 10px;
+  text-align: center;
+
 }
 
 .box {
-  max-width: 400px;
+  max-width: 450px;
   margin: 50px auto;
   background: white;
   border-radius: 5px;
@@ -21,8 +23,7 @@ h1 {
 }
 
 #heading {
-  background-color: #A683E3;
-  text-align: center;
+  background-color: #8166B0;
 }
 
 .item {
@@ -45,7 +46,9 @@ input[type="checkbox"] {
   margin: 20px;
 }
 
-
+a{
+  display:inline-block
+}
 p {
   margin: 0;
   padding: 20px;
@@ -61,16 +64,27 @@ form {
 
 button {
   min-height: 50px;
-  width: 50px;
-  border-radius: 50%;
   border-color: transparent;
-  background-color: #A683E3;
   color: #fff;
   font-size: 30px;
   padding-bottom: 6px;
-  border-width: 0;
+}
+.addBtn{
+  background-color: #A683E3;
+  border-radius: 50%;
+  min-height: 50px;
+  width: 50px;
+  border-radius: 50%;
 }
 
+
+.deleteBtn{
+  background-color: #8166B0;
+  display: inline;
+}
+.deleteSpan{
+size: 20px;
+}
 input[type="text"] {
   text-align: center;
   height: 60px;
@@ -103,4 +117,22 @@ footer {
   text-decoration: line-through;
   text-decoration-color: #A683E3;
 
+}
+ 
+/* CSS */
+.button-35 {
+  background-color:#8166B0;
+  align-items: center;
+  border-radius: 12px;
+  box-shadow: transparent 0 0 0 3px,rgba(18, 18, 18, .1) 0 6px 20px;
+  display: inline-flex;
+  flex: 1 1 auto;
+  line-height: 1;
+  transition: box-shadow .2s,-webkit-box-shadow .2s;
+  touch-action: manipulation;
+  margin: 20px;
+}
+
+.button-35:hover {
+  box-shadow: #D6CCE8 0 0 0 3px, transparent 0 0 0 0;
 }

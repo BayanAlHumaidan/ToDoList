@@ -1,46 +1,44 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-
-<head>
-  <meta charset="utf-8">
-
-  <title>قائمة المهام</title>
-  <link rel="stylesheet" href="css/styles.css">
-
-</head>
-
-<body>
-
+<%- include("header") -%>
   <div class="box" id="heading">
-    <h1>يوم <%= arDay %> </h1>
+    <h1> <%= arDay %> </h1>
+    <h1 name="listTitle"> <%= listTitle %> </h1>
   </div>
 
   <div class="box">
-    <% for(var i=0;i<listArray.length;i++){ %>
-    <form class="" action="/delete" method="post">
-      <div class="item">
-        <input type="checkbox" value="<%=listArray[i]%>" onchange="this.form.submit()">
-        <p><%= listArray[i] %></p>
-        <!-- <input type="button" onclick="<% function popItem(){listArray[i].pop()} %>"> -->
-      </div>
-      <input type="hidden" name="listName" value="<%=listArray[i]%>"></input>
-    </form>
-      <% } %>
+    <% listArray.forEach( item =>{ %>
 
-      <form action="/" method="post" class="item">
-        <input type="text" name="toDoItem" placeholder="اضافة مهمة" autocomplete="off">
-        <button type="submit" name="button">+</button>
-      </form>
+    <form  action="/delete" method="post">
+      <div class="item">
+        <input type="hidden" value="<%=listTitle %>" name="title">
+
+        <input type="hidden" value="<%=item._id%>" name="itemID">
+        <input type="checkbox" value="<%=item.name%>" name="itemName" onchange="this.form.submit()">
+
+        <p><%= item.name %></p>
+      </div>
+    </form>
+    <% }); %>
+
+    <form action="/" method="post" class="item">
+      <input type="text" name="newItem" placeholder="اضافة مهمة" autocomplete="off">
+      <button class="addBtn" type="submit" name="list" value= "<%= listTitle%>">+</button>
+    </form>
 
   </div>
 
-    <div class="box">
-      <% for(var i=0;i<historyList.length;i++){ %>
-          <p class="historyItems"><%=historyList[i]%></p>
-          <% } %>
-    </div>
+  <div class="box">
+    <% if (historyList) historyList.forEach( hitem =>{ %>
+    <p class="historyItems"><%=hitem.name%></p>
+    <% }); %>
+  </div>
 
+  <form action="/clear" method="post">
+    <input type="hidden" value="<%=listTitle %>" name="title">
+  <center><button class="button-35" type="submit" >إعادة تعيين</button></center>
+  </form>
 
-</body>
-
-</html>
+  <form action="/">
+    <button class="button-35" type="submit">العودة</button>
+  </form>
+  
+  <%- include("footer") -%>
