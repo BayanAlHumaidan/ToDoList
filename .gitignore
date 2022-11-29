@@ -1,6 +1,4 @@
 
 Me.jpg
 index.html
-
-# Local Netlify folder
-.netlify
+node_modules

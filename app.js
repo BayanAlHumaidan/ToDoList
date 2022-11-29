@@ -8,9 +8,14 @@ let arabicDate = getArDay();
 
 app.set("view engine", "ejs");
 //search in view folder
+const CONFIG = {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+}
+const url = "mongodb+srv://bayanOmar:Aq7k8Ne0AhNEXEd5@bayanomar.dvhl0au.mongodb.net/todoDB";
 
 //mongoDB
-mongoose.connect("mongodb+srv://bayanOmar:Aq7k8Ne0AhNEXEd5@bayanomar.dvhl0au.mongodb.net/todoDB");
+mongoose.connect(url,CONFIG);
 
 const defTitle = "الرئيسية";
 
