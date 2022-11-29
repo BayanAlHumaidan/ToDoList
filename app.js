@@ -38,17 +38,11 @@ const listSchema = {
 };
 const List = mongoose.model("List", listSchema);
 
-app.use(
-  bodyParser.urlencoded({
-    extended: true,
-  })
-);
+app.use( bodyParser.urlencoded({extended: true,}));
 
 
 app.use(express.static("public"));
 
-// let port = process.env.PORT;
-// if(port = null || port =="") port=3000;
 app.listen(3000 || process.env.PORT , (req, res) => {
   console.log("Server is running on server 3000");
 });
